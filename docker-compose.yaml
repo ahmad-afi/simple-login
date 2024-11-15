@@ -1,0 +1,18 @@
+services:
+  mysql_simple_login:
+    image: mysql:oracle
+    container_name: mysql_simple_login
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_simple_login:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${mysql_password}
+      MYSQL_PASSWORD: ${mysql_password}
+      MYSQL_USER: ${mysql_username}
+      MYSQL_DATABASE: ${mysql_dbname}
+
+volumes:
+  mysql_simple_login: {}
